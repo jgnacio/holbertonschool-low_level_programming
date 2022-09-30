@@ -1,2 +1,3 @@
-#include "_putchar.c"
-int _putchar(char);
+#include <unistd.h>
+
+int _putchar(char c);
