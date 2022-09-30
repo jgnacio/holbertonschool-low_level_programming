@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
  * main - the start function
@@ -14,8 +14,8 @@ int main(void)
 	int i = 0;
 	for(; i <= 7; i++)
 	{
-		putchar(text[i]);
+		_putchar(text[i]);
 	}
-	putchar('\n');
+	_putchar('\n');
 	return (0);
 }
