@@ -2,9 +2,11 @@
 
 /**
  * add - hola
+ * @first: first digit to add
+ * @second: second digit to add
  * Return: 0,
  */
-int add(int firts, int second)
+int add(int first, int second)
 {
-	return (firts + second);
+	return (first + second);
 }
