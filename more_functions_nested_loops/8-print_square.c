@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * print_square - Write a function that prints a square, 
+ * print_square - Write a function that prints a square,
  * followed by a new line.
- * @n: number the diagonal to print
+ * @size: number the size of the square
  *
  * Return: nothing :)
  */
