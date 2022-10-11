@@ -4,6 +4,7 @@
 /**
  * string_toupper - function that changes all lowercase letters
  * of a string to uppercase.
+ * @str: string to set uppercase
  *
  * Return: String upper.
  */
