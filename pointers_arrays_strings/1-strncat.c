@@ -2,11 +2,10 @@
 #include "main.h"
 
 /**
- * _strncat - function appends the src string to the dest string, overwriting
- * the terminating null byte (\0) at the end of dest, and then adds a
- * terminating null byte.
+ * _strncat - function that concatenates two strings.
  * @dest: array dest.
  * @src: array to copy the string to dest.
+ * @n: the characters to add
  *
  * Return: The string copy.
  */
