@@ -3,6 +3,11 @@
 
 /**
  * _memcpy - function that copies memory area.
+ * @n: limit to overwrite.
+ * @src: string to copy.
+ * @dest: string to modify.
+ *
+ * Return: string modify.
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
