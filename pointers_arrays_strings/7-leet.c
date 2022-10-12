@@ -18,7 +18,6 @@ char *leet(char *str)
 		{
 			if (str[i] == leet[j] || str[i] == leet[j] - 32)
 			{
-				printf("j:%d ", j);
 				str[i] = leet[j + 5];
 			}
 		}
