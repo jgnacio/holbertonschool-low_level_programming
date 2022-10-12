@@ -1,27 +1,25 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
- * _strspn - function that locates a character in a string.
- * @c: character to compare.
- * @s: pointer to select.
+ * _strspn - gets lengthof a prefix substring
+ * @s: string to check
+ * @accept: string to check against
  *
- * Return: new pointer.
+ * Return: number of bytes of s in accept
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	int i, j;
-	unsigned int num = 0;
+	unsigned int i, j;
 
-	for (i = 0; s[i] != '\0'; i++)
+	for (i = 0; s[i]; i++)
 	{
-		for (j = 0; accept[j] != '\0'; j++)
+		for (j = 0; accept[j]; j++)
 		{
 			if (s[i] == accept[j])
-			{
-				num++;
-			}
+				break;
 		}
+		if (!accept[j])
+			break;
 	}
-	return (num - 2);
+	return (i);
 }
