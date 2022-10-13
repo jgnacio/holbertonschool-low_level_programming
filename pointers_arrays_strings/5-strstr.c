@@ -2,10 +2,9 @@
 #include "main.h"
 
 /**
- * _strpbrk - function locates the first occurrence in the string s of any of
- * the bytes in the string accept
- * @accept: string to compare.
- * @s: string to modify.
+ * _strstr - function that locates a substring.
+ * @needle: string to compare.
+ * @haystack: pointer to send.
  *
  * Return: pointer to the byte in s that matches one of the bytes in accept,
  * or NULL if no such byte is found.
@@ -14,13 +13,13 @@ char *_strstr(char *haystack, char *needle)
 {
 	int i = 0, j;
 	int init = 0;
-	
+
 	if (*needle == '\0')
 	{
 		return ('\0');
 	}
 
-	while(haystack[i] != '\0')
+	while (haystack[i] != '\0')
 	{
 		for (j = 0; needle[j] != '\0'; j++)
 		{
