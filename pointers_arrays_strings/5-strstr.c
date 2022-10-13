@@ -24,7 +24,6 @@ char *_strstr(char *haystack, char *needle)
 		{
 			if (haystack[i] != needle[j])
 			{
-				printf("%d\n", j);
 				break;
 			}
 			i++;
