@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
+ * _strlen_recursion - function that returns the length of a string.
+ * @s: string to count len
  *
- *
- *
+ * Return: integer with len
  */
 int _strlen_recursion(char *s)
 {
