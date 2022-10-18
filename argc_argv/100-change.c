@@ -55,7 +55,6 @@ int getmini(int v)
 		{
 			sum += coins[i];
 			count_coins++;
-			/*printf("input:%d sum:%d, count:%d, coins[i]:%d\n", v, sum, count_coins, coins[i]);*/
 			i = 0;
 			continue;
 		}
