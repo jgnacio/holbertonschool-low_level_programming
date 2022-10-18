@@ -4,8 +4,12 @@
 int getmini(int v);
 int _isdigit(char *d);
 /**
+ * main - program that prints the minimum number
+ * of coins to make change for an amount of money.
+ * @argc: argc.
+ * @argv: argv.
  *
- *
+ * Return: count of coins to give the change.
  */
 int main(int argc, char *argv[])
 {
@@ -33,25 +37,29 @@ int main(int argc, char *argv[])
 }
 
 /**
+ * getmini - get the minimum number of coins to give the change.
+ * @v: value of change.
  *
- *
- *
+ * Return: the minimun of coins.
  */
 int getmini(int v)
 {
-	int i;
+	int i = 0;
 	int coins[] = {25, 10, 5, 2, 1};
 	int sum = 0;
 	int count_coins = 0;
 
-	for (i = 0; coins[i]; i++)
+	while (coins[i])
 	{
-		if (v > coins[i] && v > sum && (sum + coins[i]) <= v)
+		if (v >= coins[i] && v > sum && (sum + coins[i]) <= v)
 		{
 			sum += coins[i];
 			count_coins++;
-			i = -1;
+			/*printf("input:%d sum:%d, count:%d, coins[i]:%d\n", v, sum, count_coins, coins[i]);*/
+			i = 0;
+			continue;
 		}
+		i++;
 	}
 	return (count_coins);
 }
