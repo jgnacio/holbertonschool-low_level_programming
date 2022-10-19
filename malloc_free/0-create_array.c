@@ -22,6 +22,8 @@ char *create_array(unsigned int size, char c)
 			new_array[i] = c;
 		}
 	}
+	else
+		return (new_array);
 	new_array[i + 1] = '\0';
 	return (new_array);
 }
