@@ -2,9 +2,11 @@
 #include <stdlib.h>
 
 /**
+ * _strdup - function that returns a pointer to a newly allocated space in
+ * memory, which contains a copy of the string given as a parameter.
+ * @str: string to copy.
  *
- *
- *
+ * Return: the pointer of array.
  */
 char *_strdup(char *str)
 {
@@ -12,9 +14,11 @@ char *_strdup(char *str)
 	int len = 0;
 	char *str_copy = NULL;
 
-	if (*str != '\0')
+	if (str != NULL)
 	{
-		for (len = 0; str[len]; len++);
+		for (len = 0; str[len]; len++)
+		{
+		}
 
 		/*For the extra null character*/
 
@@ -27,6 +31,8 @@ char *_strdup(char *str)
 		{
 			str_copy[i] = str[i];
 		}
+		return (str_copy);
 	}
-	return (str_copy);
+	else
+		return (str_copy);
 }
