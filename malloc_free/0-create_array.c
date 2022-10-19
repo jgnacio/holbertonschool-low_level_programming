@@ -16,10 +16,13 @@ char *create_array(unsigned int size, char c)
 
 	if (size != 0)
 	{
-		new_array = malloc((sizeof(char) * size));
-		for (i = 0; i < size; i++)
+		if (new_array)
 		{
-			new_array[i] = c;
+			new_array = malloc((sizeof(char) * size));
+			for (i = 0; i < size; i++)
+			{
+				new_array[i] = c;
+			}
 		}
 	}
 	else
