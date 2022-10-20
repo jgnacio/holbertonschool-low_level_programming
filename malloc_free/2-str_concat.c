@@ -3,10 +3,11 @@
 #include "main.h"
 
 /**
+ * str_concat - function that concatenates two strings.
+ * @s1: first string to concatenate.
+ * @s2: second string to concatenate.
  *
- *
- *
- *
+ * Return: string concatenate.
  */
 char *str_concat(char *s1, char *s2)
 {
