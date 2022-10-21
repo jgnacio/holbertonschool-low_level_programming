@@ -5,12 +5,9 @@
 void *malloc_checked(unsigned int b)
 {
 	void *ptr = NULL;
-	int ret = 98;
-	int *inp;
-	inp = &ret;
 
 	ptr = malloc(b);
 	if (ptr == NULL)
-		return (inp);
+		exit (98);
 	return (ptr);
 }
