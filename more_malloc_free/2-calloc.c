@@ -10,13 +10,11 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *newarray = NULL;
-	int i = 0;
+	char *newarray = NULL;
+	unsigned int i = 0;
 
 	if (nmemb == 0 || size == 0)
-	{
 		return (NULL);
-	}
 
 	newarray = malloc(nmemb * size);
 
