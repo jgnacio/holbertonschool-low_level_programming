@@ -13,7 +13,7 @@ int _isdigit(char *d);
  */
 int main(int argc, char *argv[])
 {
-	long long int input = 0;
+	long int input = 0;
 
 	if (argc != 2)
 	{
@@ -44,10 +44,10 @@ int main(int argc, char *argv[])
  */
 int getmini(int v)
 {
-	long long int i = 0;
+	long int i = 0;
 	int coins[] = {25, 10, 5, 2, 1};
-	long long int sum = 0;
-	long long int count_coins = 0;
+	long int sum = 0;
+	long int count_coins = 0;
 
 	while (coins[i])
 	{
