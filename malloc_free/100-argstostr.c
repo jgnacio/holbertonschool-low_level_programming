@@ -19,11 +19,9 @@ char *argstostr(int ac, char **av)
 		;
 	;
 
-	/* fix the blank spaces*/
-	count -= 2;
 
 	/* Reserve on memory the size require for alloc the words*/
-	argstr = malloc(count);
+	argstr = malloc(count + 1);
 
 	if (argstr == NULL)
 		return (NULL);
@@ -34,6 +32,7 @@ char *argstostr(int ac, char **av)
 			argstr[k] = av[i][j];
 		argstr[k] = '\n';
 	}
+	argstr[k] = '\0';
 
 	return (argstr);
 }
