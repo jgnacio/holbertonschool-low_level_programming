@@ -19,6 +19,8 @@ char *argstostr(int ac, char **av)
 		;
 	;
 
+	if (count == 0)
+		return (NULL);
 
 	/* Reserve on memory the size require for alloc the words*/
 	argstr = malloc(count + 1);
