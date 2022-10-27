@@ -1,98 +1,82 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "dog.h"
+#include <stdlib.h>
 
-int _strlen(char *str);
 char *_strdup(char *str);
 /**
- * new_dog - function that creates a new dog.
- * @name: name of new dog.
- * @age: age of new dog.
- * @owner: owner of new dog.
- *
- * Return: pointer pointing to a copy of new dog.
+ * new_dog - creates a new dog.
+ * @name: string of char
+ * @age: float
+ * @owner: string of char
+ * Return: a pointer to the struct dog or NULL if the function fails
  */
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *ptr = NULL;
+	dog_t *new_d = NULL;
 
-	ptr = malloc(sizeof(dog_t));
-
-	if (ptr == NULL)
-		return (NULL);
-
-	ptr->name = _strdup(name);
-	if (!ptr->name)
+	new_d = malloc(sizeof(dog_t));
+	if (new_d != NULL)
 	{
-		free(ptr->name);
-		free(ptr);
-		return (NULL);
+		new_d->name = _strdup(name);
+		if (new_d->name == NULL)
+		{
+			free(new_d);
+			return (NULL);
+		}
+		new_d->owner = _strdup(owner);
+		if (new_d->owner == NULL)
+		{
+			free(new_d->name);
+			free(new_d);
+			return (NULL);
+		}
+		new_d->age = age;
 	}
-
-	ptr->owner = _strdup(owner);
-	if (!ptr->owner)
-	{
-		free(ptr->name);
-		free(ptr->owner);
-		free(ptr);
-		return (NULL);
-	}
-
-	ptr->age = age;
-
-	return (ptr);
+	return (new_d);
 }
 
 /**
- * _strlen - function to count the characters of an string.
- * @str: string to check.
+ * _strlen - function that returns the length of a string.
+ * @s: pointer to check
  *
- * Return: count.
+ * Return: Always 0.
  */
-int _strlen(char *str)
+int _strlen(char *s)
 {
-	int len;
+	int len = 0;
 
-	if (!str)
-		return (0);
-	for (len = 0; str[len]; len++)
-		;
+	while (*s)
+	{
+		len++;
+		s = s + 1;
+	}
 	return (len);
 }
 
 /**
- * _strdup - function that returns a pointer to a newly allocated space in
- * memory, which contains a copy of the string given as a parameter.
- * @str: string to copy.
+ * _strdup - copy of the string given as a parameter
+ * @str: string of char
  *
- * Return: the pointer of array.
+ * Description: The _strdup() function returns a pointer to a new string which
+ * is a duplicate of the string str. Memory for the new string is
+ * obtained with malloc, and can be freed with free.
+ * Returns NULL if str = NULL
+ *
+ * Return: a pointer to the duplicated string. It returns
+ * NULL if insufficient memory was available
  */
+
 char *_strdup(char *str)
 {
+	char *res = NULL;
 	int i = 0;
-	int len = 0;
-	char *str_copy = NULL;
 
 	if (str != NULL)
+		res = malloc(_strlen(str) + 1);
+	if (res != NULL)
 	{
-		for (len = 0; str[len]; len++)
-		{
-		}
-
-		/*For the extra null character*/
-
-		str_copy = malloc(sizeof(char) * len + 1);
-
-		if (str_copy == NULL)
-			return (NULL);
-
-		for (i = 0; i < len; i++)
-		{
-			str_copy[i] = str[i];
-		}
-		return (str_copy);
+		for (i = 0; i <= _strlen(str); i++)
+			res[i] = str[i];
 	}
-	else
-		return (str_copy);
+	return (res);
 }
