@@ -1,7 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "3-calc.h"
-#include "3-op_functions.c"
 
 /**
  * get_op_func - function that get the operator selected on main program.
