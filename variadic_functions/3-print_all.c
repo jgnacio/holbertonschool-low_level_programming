@@ -12,8 +12,13 @@ void print_all(const char * const format, ...)
 	int i = 0;
 	char *strarg;
 
+	if (format != NULL)
+	{
+		printf("\n");
+		return;
+	}
 	va_start(ap, format);
-	while (format[i] && format != NULL)
+	while (format[i])
 	{
 		switch (format[i])
 		{
