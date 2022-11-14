@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stddef.h>
 
 /**
  * list_len - Function that returns the number of elements
@@ -13,10 +14,7 @@ size_t list_len(const list_t *h)
 
 	for (i = 0; h; i++)
 	{
-		if (h->next)
-			h = h->next;
-		else
-			h = h->next;
+		h = h->next;
 	}
 	return (i);
 }
