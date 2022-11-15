@@ -8,7 +8,6 @@ list_t *makenode(const char *str);
 list_t *add_node(list_t **head, const char *str)
 {
 	list_t *new = NULL;
-	int i = 0;
 
 	if (!*head)
 	{
@@ -21,6 +20,7 @@ list_t *add_node(list_t **head, const char *str)
 		new->next = *head;
 		*head = new;
 	}
+	return (*head);
 }
 
 list_t *makenode(const char *str)
@@ -37,25 +37,4 @@ list_t *makenode(const char *str)
 		new->len = i;
 		new->next = NULL;
 		return (new);
-}
-
-size_t print_list(const list_t *h)
-{
-	int i = 0;
-
-	for (i = 0; h; i++)
-	{
-		if (!h->str)
-		{
-			printf("[0] (nil)\n");
-			h = h->next;
-		}
-		else
-		{
-			printf("[%d] %s\n", h->len, h->str);
-			h = h->next;
-		}
-	}
-
-	return (i);
 }
