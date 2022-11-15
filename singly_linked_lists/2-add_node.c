@@ -1,6 +1,12 @@
 #include "lists.h"
 
-
+/**
+ * add_node - Function that adds a new node at the beginning of a list_t list.
+ * @head: The pointer of an list.
+ * @str: String for the new list.
+ *
+ * Return: The list of nodes.
+ */
 list_t *add_node(list_t **head, const char *str)
 {
 	list_t *new = NULL;
@@ -18,6 +24,12 @@ list_t *add_node(list_t **head, const char *str)
 	return (new);
 }
 
+/**
+ * makenode - Function that create a new node for an list
+ * @str: The string to set in the new node.
+ *
+ * Return: The new node.
+ */
 list_t *makenode(const char *str)
 {
 		list_t *new = NULL;
