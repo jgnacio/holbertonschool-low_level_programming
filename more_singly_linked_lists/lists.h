@@ -1,6 +1,7 @@
 #ifndef LIST_H
 #define LIST_H
 #include <stddef.h>
+#include <stdlib.h>
 
 /**
  * struct listint_s - singly linked list
@@ -26,4 +27,5 @@ int pop_listint(listint_t **head);
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index);
 int sum_listint(listint_t *head);
 int delete_nodeint_at_index(listint_t **head, unsigned int index);
+listint_t *makenode(int n);
 #endif
