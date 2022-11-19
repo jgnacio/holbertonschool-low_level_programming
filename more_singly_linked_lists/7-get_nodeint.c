@@ -11,7 +11,7 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
 	if (head)
 	{
-		while (index != 0)
+		while (index != 0 && head)
 		{
 			head = head->next;
 			index--;
@@ -19,4 +19,26 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 		return (head);
 	}
 	return (NULL);
+}
+
+/**
+ * makenode - Function that create a new node for an list
+ * @n: The integer to set in the new node.
+ *
+ * Return: The new node.
+ */
+listint_t *makenode(int n)
+{
+	listint_t *new = NULL;
+
+	new = malloc(sizeof(listint_t));
+	if (!new)
+	{
+		free(new);
+		return (new);
+	}
+
+	new->n = n;
+	new->next = NULL;
+	return (new);
 }
