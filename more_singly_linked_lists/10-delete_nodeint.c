@@ -21,6 +21,11 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 			aux = aux->next;
 			index--;
 		}
+		if (!aux)
+		{
+			aux = NULL;
+			return (-1);
+		}
 
 		if (prev)
 			prev->next = aux->next;
