@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
  * insert_nodeint_at_index - Function that inserts a new node
@@ -23,6 +24,8 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 			aux = aux->next;
 			idx--;
 		}
+		if (!aux)
+			return (NULL);
 
 		newnode = makenode(n);
 		newnode->next = aux;
@@ -31,6 +34,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		else
 			*head = newnode;
 
+		return (*head);
 	}
 	return (NULL);
 }
