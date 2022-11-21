@@ -34,7 +34,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	read(fd, buf, letters);
 	for (i = 0; buf[i]; i++, count_char++)
 	{
-		if (filename == "textfile_0")
+		if (letters == 2000)
 			write(2, &buf[i], 1);
 		else
 			write(1, &buf[i], 1);
