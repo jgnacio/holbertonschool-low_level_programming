@@ -34,7 +34,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	read(fd, buf, letters);
 	for (i = 0; buf[i]; i++, count_char++)
 	{
-		write(1, &buf[i], 1);
+		write(2, &buf[i], 1);
 	}
 	close(fd);
 	return (count_char);
