@@ -9,7 +9,7 @@
  */
 char *read_textfile_2(const char *filename)
 {
-	int fd, i;
+	int fd;
 	char *buf = NULL;
 	int read_count = 0;
 

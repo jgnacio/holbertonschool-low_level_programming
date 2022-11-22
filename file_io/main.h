@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdarg.h>
+#include <stdlib.h>
 #include "1-create_file_2.c"
 #include "0-read_textfile_2.c"
 
