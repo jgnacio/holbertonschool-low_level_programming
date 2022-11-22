@@ -1,13 +1,6 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-
+#include "main.h"
 /**
- * read_textfile - Function that reads a text file and prints it to the
+ * read_textfile_2 - Function that reads a text file and prints it to the
  * POSIX standard output.
  * @filename: The name of file to open.
  * @letters: The amount of chars to print.
@@ -18,30 +11,23 @@ char *read_textfile_2(const char *filename)
 {
 	int fd, i;
 	char *buf = NULL;
-	int read_file = 1;
+	int read_count = 0;
 
 	if (!filename)
 		return (0);
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		return (0);
+		return (NULL);
 
 	buf = malloc(1024);
 	if (buf == NULL)
 		return (NULL);
 
-	while (read_file)
+	read_count = read(fd, buf, 1024);
+	while (read_count)
 	{
-		read(fd, buf, 1024);
-		for (i = 0; i <= 1024; i++)
-		{
-			if (!buf[i])
-			{
-				read_file = 0;
-				break;
-			}
-		}
+		read_count = read(fd, buf, 1024);	
 	}
 	close(fd);
 	return (buf);

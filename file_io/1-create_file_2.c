@@ -1,10 +1,4 @@
-#include <stdio.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <string.h>
-
+#include "main.h"
 /**
  * create_file - Function that creates a file.
  * @filename: The name of the file to create.
@@ -16,6 +10,7 @@ int create_file(const char *filename, char *text_content)
 {
 	int fd;
 	int len_cont = 0;
+	int close_ = 0;
 
 	if (!filename)
 		return (-1);
@@ -29,6 +24,11 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 
 	write(fd, text_content, len_cont);
-	close(fd);
+	close_ = close(fd);
+	if (close_ == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
 	return (1);
 }

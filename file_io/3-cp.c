@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
 {
 	char *f_from_content = NULL;
 	int fd_to = 0;
+	int close_ = 0;
 	char *fd_from_s = NULL, *fd_to_s = NULL;
 
 	if (argc != 3)
@@ -35,8 +36,8 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fd_to_s);
 		exit(99);
 	}
-	close(fd_to);
-	if (fd_to == -1)
+	close_ = close(fd_to);
+	if (close_ == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
 		exit(100);
