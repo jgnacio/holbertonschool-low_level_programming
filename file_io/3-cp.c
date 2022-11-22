@@ -15,8 +15,8 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-			write(2, "Usage: cp file_from file_to\n", 28);
-			exit(97);
+		write(2, "Usage: cp file_from file_to\n", 28);
+		exit(97);
 	}
 
 	fd_from_s = argv[1];
@@ -25,20 +25,20 @@ int main(int argc, char *argv[])
 	f_from_content = read_textfile_2(fd_from_s);
 	if (f_from_content == NULL)
 	{
-		dprintf(STDERR_FILENO,"Error: Can't read from file %s\n", fd_from_s);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", fd_from_s);
 		exit(98);
 	}
 
 	fd_to = create_file(fd_to_s, f_from_content);
 	if (fd_to == -1)
 	{
-		dprintf(STDERR_FILENO,"Error: Can't write to %s\n", fd_to_s);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fd_to_s);
 		exit(99);
 	}
 	close(fd_to);
 	if (fd_to == -1)
 	{
-		dprintf(STDERR_FILENO,"Error: Can't close fd %d\n", fd_to);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
 		exit(100);
 	}
 	return (0);
