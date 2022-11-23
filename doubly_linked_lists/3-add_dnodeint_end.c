@@ -15,6 +15,11 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	dlistint_t *aux = *head;
 
 	newnode = makenode(n);
+	if (!newnode)
+	{
+		free(newnode);
+		return(NULL);
+	}
 	if (!*head)
 		*head = newnode;
 	else
