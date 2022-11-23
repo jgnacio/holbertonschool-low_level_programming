@@ -33,23 +33,3 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	}
 	return (newnode);
 }
-
-/**
- * makenode - Function that create a new node for an list
- * @n: The integer to set in the new node.
- *
- * Return: The new node.
- */
-dlistint_t *makenode(int n)
-{
-	dlistint_t *new = NULL;
-
-	new = malloc(sizeof(dlistint_t));
-	if (!new)
-		return (NULL);
-
-	new->n = n;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
-}
