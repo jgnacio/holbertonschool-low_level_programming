@@ -10,7 +10,7 @@
 int main(int argc, char *argv[])
 {
 	int fd_from = 0, fd_to = 0, char_count = 0, write_check = 0, BUF = 1024;
-	char *buf;
+	char *buf = NULL;
 
 	if (argc != 3)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
@@ -41,6 +41,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from), exit(100);
 	else if ((close(fd_from)) == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to), exit(100);
-	free(buf);
+	if (free(buf) == NULL)
+		exit(101);
 	return (0);
 }
