@@ -17,37 +17,22 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	newnode = makenode(n);
 	if (!newnode)
-	{
-		free(newnode);
 		return (NULL);
-	}
-	if (h && *h)
+	if (!aux)
 	{
-		for (; idx != 0 && aux; idx--, prev = aux, aux = aux->next)
-			;
-		if (!aux)
-		{
-			if (prev->next == NULL && idx == 0)
-			{
-				prev->next = newnode;
-				return (newnode);
-			}
-			return (NULL);
-		}
-		newnode->next = aux;
-		aux->prev = newnode;
-		if (prev)
-		{
-			prev->next = newnode;
-			newnode->prev = prev;
-		}
-		else
-			*h = newnode;
-		return (*h);
+		aux = newnode;
+		return (aux);
 	}
-	else
+	for (; idx && aux; idx--)
 	{
-		*h = newnode;
-		return (*h);
+		prev = aux->prev;
+		aux = aux->next;
 	}
+	newnode->next = aux;
+	aux->prev = newnode;
+	if (idx == 0 && prev->next == NULL)
+		return (aux);
+	prev->next = newnode;
+	newnode->prev = prev;
+	return (newnode);
 }
