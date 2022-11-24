@@ -1,4 +1,5 @@
 #include "lists.h"
+#include "5-get_dnodeint.c"
 
 /**
  * insert_dnodeint_at_index - Function that inserts a new node
@@ -23,16 +24,17 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		aux = newnode;
 		return (aux);
 	}
-	for (; idx && aux; idx--)
+	aux = get_dnodeint_at_index(aux, idx);
+	newnode->next = aux;
+	if (aux)
 	{
 		prev = aux->prev;
-		aux = aux->next;
+		aux->prev = newnode;
 	}
-	newnode->next = aux;
-	aux->prev = newnode;
-	if (idx == 0 && prev->next == NULL)
-		return (aux);
-	prev->next = newnode;
-	newnode->prev = prev;
+	if (prev)
+	{
+		prev->next = newnode;
+		newnode->prev = prev;
+	}
 	return (newnode);
 }
