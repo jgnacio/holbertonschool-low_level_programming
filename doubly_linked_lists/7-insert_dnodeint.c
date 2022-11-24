@@ -13,28 +13,19 @@
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *aux = *h;
-	dlistint_t *newnode = NULL;
-	dlistint_t *prev = NULL;
+	dlistint_t *new = NULL;
 
-	newnode = makenode(n);
-	if (!newnode)
+	if (!h)
 		return (NULL);
+	if (idx == 0)
+		return(add_dnodeint(h, n));
+
+	aux = get_dnodeint_at_index(*h, idx - 1);
 	if (!aux)
-	{
-		*h = newnode;
-		return (*h);
-	}
-	aux = get_dnodeint_at_index(aux, idx);
-	newnode->next = aux;
-	if (aux)
-	{
-		prev = aux->prev;
-		aux->prev = newnode;
-	}
-	if (prev)
-	{
-		prev->next = newnode;
-		newnode->prev = prev;
-	}
-	return (newnode);
+		return (NULL);
+
+	new = add_dnodeint(&(aux->next), n);
+	new->prev = aux;
+	aux->next = new;
+	return (new);
 }
