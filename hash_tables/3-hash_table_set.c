@@ -37,7 +37,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 	}
 	/* Put a node at the beginning or add new one */
-	add_nodesh(&(a_nodes[c_index]), key, value);
+	check_node = add_nodesh(&(a_nodes[c_index]), key, value);
 	if (!check_node)
 		return (0);
 	return (1);
