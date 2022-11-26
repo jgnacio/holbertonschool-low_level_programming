@@ -32,6 +32,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		/* If the key already exist update */
 		if (strcmp(a_nodes[c_index]->key, key) == 0)
 		{
+			free((a_nodes[c_index])->value);
 			(a_nodes[c_index])->value = strdup(value);
 			return (1);
 		}
