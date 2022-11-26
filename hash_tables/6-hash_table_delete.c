@@ -1,4 +1,5 @@
 #include "hash_tables.h"
+#include "free_list_hash.c"
 
 /**
  * hash_table_delete - Function that deletes a hash table.
